@@ -1,0 +1,23 @@
+<form>
+  <mat-form-field class="input" appearance="fill">
+    <mat-label>Start</mat-label>
+    <input
+      matInput
+      (change)="$event ? triggerChange() : null"
+      [formControl]="startFormControl"
+      type="datetime-local"
+    />
+    <mat-error *ngIf="startFormControl.hasError('greater')">
+      Start Date cannot be <strong>greater than End Date</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="input" appearance="fill">
+    <mat-label>End</mat-label>
+    <input
+      matInput
+      (change)="$event ? triggerChange() : null"
+      [formControl]="endFormControl"
+      type="datetime-local"
+    />
+  </mat-form-field>
+</form>

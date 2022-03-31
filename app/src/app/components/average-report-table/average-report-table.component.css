@@ -1,0 +1,11 @@
+.table-container {
+  width: 1000px;
+}
+
+th {
+  width: 300px;
+}
+
+th:first-child {
+  width: 50px;
+}

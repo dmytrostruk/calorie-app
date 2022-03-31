@@ -1,0 +1,465 @@
+{
+	"info": {
+		"_postman_id": "21dedc07-3ee0-4279-822c-22f521f04a99",
+		"name": "Calorie App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"dmytro@test.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Dmytro\",\r\n    \"email\": \"dmytro@test.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Protected Smoke Test",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjNmMDI0NjVhZjI3Y2MzMzA3NTg3MTYiLCJlbWFpbCI6ImRteXRyb0B0ZXN0LmNvbSIsIm5hbWUiOiJEbXl0cm8gVXNlciIsInJvbGUiOiJVc2VyIiwiZXhwIjoxNjQ4OTgxMTIxLCJpYXQiOjE2NDgzNzYzMjF9.pZn9YFtSgWPLy7dh-cNuk4Ib8HBk_a6CE0ujtggJpdo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/protected-test",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"protected-test"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Food",
+			"item": [
+				{
+					"name": "Add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjNmMDI0NjVhZjI3Y2MzMzA3NTg3MTYiLCJlbWFpbCI6ImRteXRyb0B0ZXN0LmNvbSIsIm5hbWUiOiJEbXl0cm8gVXNlciIsInJvbGUiOiJVc2VyIiwiZXhwIjoxNjQ4OTIzODc3LCJpYXQiOjE2NDgzMjI2Nzd9.iFSvzjp4hWlxdOs_wm0lKq_Qsn7L6VBbn2I6q0ILniI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Milk\",\r\n    \"calorieValue\": 42,\r\n    \"timestamp\": \"2022-03-26T18:58\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/add-food",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"add-food"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQwNmUxZmVkZTljMTU4NDc4OTAwOWMiLCJlbWFpbCI6ImRteXRyb0B0ZXN0LmNvbSIsIm5hbWUiOiJEbXl0cm8gVXNlciIsImV4cCI6MTY0OTA3MjM1OCwiaWF0IjoxNjQ4NDY3NTU4fQ.yDZKT-UTsEMs8tfAzGPiJhZwW-3Y-8byitKyd6gz4pI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/get-food?startDate=2022-03-27T01:00&endDate=",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"get-food"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2022-03-27T01:00"
+								},
+								{
+									"key": "endDate",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQwNmUxZmVkZTljMTU4NDc4OTAwOWMiLCJlbWFpbCI6ImRteXRyb0B0ZXN0LmNvbSIsIm5hbWUiOiJEbXl0cm8gVXNlciIsImV4cCI6MTY0OTAwNzAxNSwiaWF0IjoxNjQ4NDAyMjE1fQ.sdw-Wkf_7SOmJp6U0Xu2NpMs0zXm6HDkN2BZXNxQKH0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ids\": [\"6240a2989f469c74a719f5d5\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/delete-food",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"delete-food"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjNmMDI0NjVhZjI3Y2MzMzA3NTg3MTYiLCJlbWFpbCI6ImRteXRyb0B0ZXN0LmNvbSIsIm5hbWUiOiJEbXl0cm8gVXNlciIsInJvbGUiOiJVc2VyIiwiZXhwIjoxNjQ4OTIzODc3LCJpYXQiOjE2NDgzMjI2Nzd9.iFSvzjp4hWlxdOs_wm0lKq_Qsn7L6VBbn2I6q0ILniI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"6240a28f9f469c74a719f5d0\",\r\n    \"name\": \"Milk_updated_2\",\r\n    \"calorieValue\": 200,\r\n    \"timestamp\": \"2022-03-26T18:52\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/update-food",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"update-food"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQwNmUxZmVkZTljMTU4NDc4OTAwOWMiLCJlbWFpbCI6ImRteXRyb0B0ZXN0LmNvbSIsIm5hbWUiOiJEbXl0cm8gVXNlciIsImV4cCI6MTY0OTAwMjQ4MSwiaWF0IjoxNjQ4Mzk3NjgxfQ.ShWsVhJdwSCURGSsn9211JiM-5-LhYBvGrQelUzpsdk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/get-user",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"get-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQwNmUzOWVkZTljMTU4NDc4OTAwYTMiLCJlbWFpbCI6ImFkbWluQHRlc3QuY29tIiwibmFtZSI6IkRteXRybyBBZG1pbiIsImV4cCI6MTY0OTA1OTU0NywiaWF0IjoxNjQ4NDU0NzQ3fQ.vyYbc_JQVZrMwaVY4CFIYenRyEvms8jDUJOOzJ3oLbA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/get-users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"get-users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "Get General",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQwNmUzOWVkZTljMTU4NDc4OTAwYTMiLCJlbWFpbCI6ImFkbWluQHRlc3QuY29tIiwibmFtZSI6IkRteXRybyBBZG1pbiIsImV4cCI6MTY0OTA2NTk0OSwiaWF0IjoxNjQ4NDYxMTQ5fQ.GK_G35CeRyJdrHhSZTEr9x0h7UX7kEtJkVZ6yVgtzkw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/get-general-report",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"get-general-report"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Average",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQwNmUzOWVkZTljMTU4NDc4OTAwYTMiLCJlbWFpbCI6ImFkbWluQHRlc3QuY29tIiwibmFtZSI6IkRteXRybyBBZG1pbiIsImV4cCI6MTY0OTA2NzkwMiwiaWF0IjoxNjQ4NDYzMTAyfQ.KLjGNCwP_0fCMszvIui297uoMVeaYAS0mpLDaUCdtM0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/get-average-report",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"get-average-report"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invitation",
+			"item": [
+				{
+					"name": "Send",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQwNmUxZmVkZTljMTU4NDc4OTAwOWMiLCJlbWFpbCI6ImRteXRyb0B0ZXN0LmNvbSIsIm5hbWUiOiJEbXl0cm8gVXNlciIsImV4cCI6MTY0OTA3ODI5MywiaWF0IjoxNjQ4NDczNDkzfQ.VCV0ePfMjq_RLaTUcTaU8EbTNTWEs2X31QFVBO1nVG4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"dmytro.struk1@gmail.com\",\r\n    \"name\": \"Dmytro Struk\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/send-invitation",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"send-invitation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate Code",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Smoke Test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/test",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+  padding-top: 100px;
+}
+
+form {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.input {
+  display: block;
+  margin-bottom: 10px;
+}
+
+h2 {
+  text-align: center;
+}
+
+button {
+  margin-right: 10px;
+}

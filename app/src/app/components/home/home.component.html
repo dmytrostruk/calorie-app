@@ -1,0 +1,49 @@
+<div class="container">
+  <div>
+    <header>
+      <h3>Welcome, {{ userName }}!</h3>
+      <div class="menu">
+        <button
+          *ngIf="canEdit()"
+          mat-raised-button
+          color="primary"
+          (click)="editFood()"
+        >
+          Edit food
+        </button>
+        <button
+          *ngIf="canDelete()"
+          mat-raised-button
+          color="primary"
+          (click)="deleteFood()"
+        >
+          Delete food
+        </button>
+        <button mat-raised-button color="primary" (click)="addFood()">
+          Add food
+        </button>
+        <button mat-raised-button color="primary" (click)="inviteFriend()">
+          Invite Friend
+        </button>
+        <button mat-button color="primary" (click)="logout()">Log out</button>
+      </div>
+    </header>
+  </div>
+  <app-table-filters (dateChanged)="onDateChanged($event)"></app-table-filters>
+  <app-food-table
+    [dataSource]="foodDataSource"
+    (selectEvent)="onSelect($event)"
+  ></app-food-table>
+  <app-limit-table
+    *ngIf="canShowLimitTable()"
+    [dataSource]="limitDataSource"
+  ></app-limit-table>
+  <app-general-report-table
+    *ngIf="canShowGeneralReportTable()"
+    [dataSource]="generalReportDataSource"
+  ></app-general-report-table>
+  <app-average-report-table
+    *ngIf="canShowAverageReportTable()"
+    [dataSource]="averageReportDataSource"
+  ></app-average-report-table>
+</div>

@@ -1,0 +1,25 @@
+<div *ngIf="invitation" class="container">
+  <form>
+    <h2 *ngIf="invitation.success">You are invited!</h2>
+    <h2 *ngIf="!invitation.success">{{ invitation.message }}</h2>
+    <div *ngIf="invitation.success">
+      <mat-form-field class="input" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput [formControl]="nameFormControl" />
+        <mat-error *ngIf="nameFormControl.hasError('required')">
+          Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="input" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [formControl]="passwordFormControl" type="password" />
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="register()">
+        Register
+      </button>
+    </div>
+  </form>
+</div>
