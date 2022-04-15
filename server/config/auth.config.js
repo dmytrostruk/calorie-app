@@ -1,5 +1,5 @@
 module.exports = {
-  JWT_SECRET: "YvX7nZIM5mgAlLez4utx8RQTbPi3zhzY",
+  JWT_SECRET: "<secret>",
   JWT_EXPIRY_IN_DAYS: 7,
   JWT_ALGORITHM: "HS256",
   HASH_ITERATIONS: 1000,
